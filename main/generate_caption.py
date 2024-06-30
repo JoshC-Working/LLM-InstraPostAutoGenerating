@@ -14,7 +14,7 @@ from openpyxl.styles import Font
 #     return plain_text
 
 ### Gemini API ###
-genai.configure(api_key="AIzaSyD2gXw17sww_XhHCmDFdxbyUAaYnsrDYtA")
+genai.configure(api_key="XXXXXXXXXXXXX") 
 
 ### Model Parameters ###
 generation_config = {

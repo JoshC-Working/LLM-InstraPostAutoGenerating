@@ -47,7 +47,7 @@ def insert_image_to_excel(image_path, excel_path, sheet_name, cell, sizing_perce
 
 
 def resize_image_proportionally(image_path, target_width, target_height):
-    # 打开图像文件
+ 
     pil_image = PILImage.open(image_path)
     return pil_image
     original_width, original_height = pil_image.size
@@ -70,16 +70,15 @@ def insert_png_into_excel(folder_path, excel_path):
     wb = load_workbook(excel_path)
     ws = wb.active
     
-    for column in range(1, 10):  # 调整第1列到第3列的宽度
+    for column in range(1, 10):  
         ws.column_dimensions[chr(64 + column)].width = 100
-# 设置多行的高度
-    for row in range(2, 10):  # 调整第1行到第3行的高度
+
+    for row in range(2, 10):  
         ws.row_dimensions[row].height = 500
     
     col_offset = 6
     row_offset = 2
 
-    # 获取文件夹中的所有PNG文件
     imgs = [f for f in os.listdir(folder_path) if f.endswith('.png')]
     print(imgs)
     for img in imgs:
@@ -103,18 +102,17 @@ def insert_png_into_excel(folder_path, excel_path):
 import os
 
 def clear_folder(folder_path):
-    # 获取文件夹中的所有文件和子文件夹的名称
+
     file_list = os.listdir(folder_path)
     
-    # 遍历文件夹中的所有文件和子文件夹
+
     for file_name in file_list:
-        # 拼接文件的完整路径
+
         file_path = os.path.join(folder_path, file_name)
         
-        # 如果是文件，则删除文件
         if os.path.isfile(file_path):
             os.remove(file_path)
-        # 如果是子文件夹，则递归调用 clear_folder() 函数删除子文件夹中的文件
+        
         elif os.path.isdir(file_path):
             clear_folder(file_path)
 
@@ -197,7 +195,6 @@ def put_text(name1, text, font_size, padding, font_colour, background_colour, im
 
 output_path = "main/output_photos"
 
-# 调用函数，清除指定文件夹中的所有文件
 folder_path = "main/output_photos"
 clear_folder(folder_path)
 

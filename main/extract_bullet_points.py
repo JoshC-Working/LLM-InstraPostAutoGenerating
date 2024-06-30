@@ -124,16 +124,16 @@ def cross_check(topic:str, response:str, check_prompt1 ,check_prompt2,check_prom
 
 
 def save_to_excel(string_data, file_path, row, column):
-    # 創建一個新的Workbook
+   
     wb = load_workbook(file_path)    
-    # 選擇第一個工作表
+
     ws = wb.active
     font = Font(size=18)
-    # 將字符串放入指定的單元格
+
     cell = ws.cell(row=row, column=column, value=string_data)
     cell.font = font
     
-    # 儲存Workbook到指定的路徑
+ 
     wb.save(file_path)
     print(f"Data saved to {file_path}")
 
@@ -250,9 +250,6 @@ for i, arr1 in enumerate(split_responses):
    
         save_to_excel(split_responses[i][j],"main/target.xlsx" , offset_y+i, offset_x+j )
 
-
-
-def save_2D_to_excel( 2d_arr:list[list[str]]):
   
                      
    
